@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
 import * as Dialog from "@radix-ui/react-dialog";
+import { memo } from "react";
 
-export const Siderbar = ({to,d,...props} )=> {
+export const SiderbarComponete = memo(({to,d,...props} )=> {
 
     return (       
             
@@ -28,7 +29,7 @@ export const Siderbar = ({to,d,...props} )=> {
             </Link>
         
     )
-}
+})
 
 export const CriarEdital = ({d,...props}) =>{
 

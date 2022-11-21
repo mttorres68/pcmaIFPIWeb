@@ -14,7 +14,7 @@ export const AuthProvider = ({children}) => {
 
     async function authenticate (matricula, senha){
         const response = await LoginRequest(matricula, senha);
-        const payload = { token: response.token, tipo: response.TipoUser};       
+        const payload = { token: response.token,matricula, tipo: response.TipoUser, matri: response.matriculaUser};       
 
         console.log(response,'opa');
 

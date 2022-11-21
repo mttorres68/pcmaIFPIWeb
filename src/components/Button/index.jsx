@@ -78,7 +78,7 @@ export const ButtonEditar = ({value, keyMy, d,onClick, ...props} )=>{
     )
 }
 
-export const ButaoCadastro = ({value, keyMy, to, ...props}) => {
+export const ButaoCadastro = ({value, keyMy, to, onClick, ...props}) => {
 
     return (
         <>
@@ -86,7 +86,8 @@ export const ButaoCadastro = ({value, keyMy, to, ...props}) => {
                 <Link to={to}>
                     <button
                         value={value}
-                        key={keyMy}                        
+                        key={keyMy}
+                        onClick={onClick}
                         className="flex px-4 py-2.5 bg-blue-600 text-white font-semibold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                     >
                         <span
@@ -97,6 +98,25 @@ export const ButaoCadastro = ({value, keyMy, to, ...props}) => {
                     </button>
                 </Link>
             </div>
+        </>
+    )
+}
+
+export const ButtaoDescadastrar = ({value, keyMy, to, onClick, ...props}) =>{
+
+    return(
+        <>
+            <button
+                value={value}
+                key={keyMy}
+                onClick={onClick}
+                className="px-4 py-2.5 bg-red-600 text-white font-semibold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out flex"
+
+            >
+                <span className="justify-center text-center">
+                    {props.span}
+                </span>
+            </button>
         </>
     )
 }

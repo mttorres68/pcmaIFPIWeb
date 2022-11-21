@@ -1,6 +1,8 @@
+import { memo } from "react"
+import { ButaoCadastro } from "../Button"
 
 
-export const Card = ({vagas,data, disciplina,curso,descricao,children,...props})=>{
+export const Card = memo(({vagas,data, disciplina,curso,descricao,children,...props})=>{
 
     return (
         <div 
@@ -51,10 +53,25 @@ export const Card = ({vagas,data, disciplina,curso,descricao,children,...props})
 
                 <p className="mt-4 text-sm text-white text-justify">
                     {descricao}
-                </p>
-                
+                </p>                
             </div>
+                
                 {children}
+        </div>
+    )
+})
+
+export const CardMonitoria = ({curso, disciplina, ...props}) =>{
+
+    return(
+        <div  className="block rounded-xl border text-start border-gray-800 bg-gray-900 p-4 shadow-xl bg-opacity-[0.7]">
+            <span className="text-2xl text-white font-semibold">
+                Curso - {curso}
+            </span>
+            <p className="font-normal">
+                Disciplina - {disciplina}
+            </p>
+            
         </div>
     )
 }

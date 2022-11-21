@@ -43,7 +43,8 @@ export const Cadastro = () =>{
             alert("Cadastrado com sucesso!");
             navigate("/Login")
         }catch(error){
-            alert('Erro ao criar anúncio')
+            console.log(error);
+            alert('Erro')
         }
     }
 
@@ -96,7 +97,9 @@ export const Cadastro = () =>{
                                     value={tipoUsuario}
                                     onChange={e => SetTipoUsuario(e.target.value)}
                                 >
+                                    <option disabled value="">Selecione o tipo</option>
                                     {tipo.map((e) =>(
+
                                         <option
                                             key={e.id_tipo}
                                             value={e.id_tipo}

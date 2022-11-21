@@ -1,27 +1,44 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-// export const GetTipoLocalStorage = () =>{
-//     const [tipoUsuario, setTipoUsuario] = useState({});
-//     const getLocalStorage = JSON.parse(localStorage.getItem('u'));
+export function  setTipoUsuarioFuc (){
+    const [tipoUsuario, setTipoUsuario] = useState();
 
-//     useEffect(() =>{
-//         if(getLocalStorage){
-//             setTipoUsuario(getLocalStorage.tipo)
-//         }
-//     }, [])
+    const getLocalStorage = JSON.parse(localStorage.getItem('u'));
+    const [tipoAtivo, setTipoAtivo] = useState()
+    const navigate = useNavigate();
+    let setTipo
+    
+    
+    try {
+        setTipo = (getLocalStorage.tipo.map((e) => (e.descricao)));
+    } catch (error) {
+        console.log(error);
+        navigate('/Login') 
+    }
 
-//     return (        
-//         <div>
-//             <div className="flex items-center -mb-4 mt-2 text-base font-bold text-white rounded-lg hover:bg-purple-800 text-center justify-center">   
-//                 <span>
-//                     {tipoUsuario.map((e) => <h1 cassName="text-center" key={e.descricao}> {e.descricao} </h1>
-                    
-//                     )}
-//                 </span>
-//             </div>
+    useEffect(() =>{
+        try {
+            if(getLocalStorage){
+                setTipoUsuario(setTipo)
+            }else{
+                navigate('/Login')  
+            }           
+        } catch (error) {
+            console.log(error);
+        }
 
-//         </div>
-//     )
+        if(setTipo == "Aluno" || setTipo == "Monitor"){
+            setTipoAtivo(false)
+        }else if(setTipo == "Professor" || setTipo == "Coordenador") {
+            setTipoAtivo(true)
+        }        
+    }, [])
+
+    if (tipoAtivo == true) {
+        return true
         
-// }
-
+    } else {
+        return false
+    }
+}

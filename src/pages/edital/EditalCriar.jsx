@@ -15,6 +15,8 @@ export const EditalCriar = () => {
     const [listDisciplina , setListDisciplina] = useState([]);
     const [status, setStatus] = useState();
 
+
+    const [a, setA] = useState('')
     const [clearValue, setValue] = useState({
         inscricao: '',
         vaga: '',
@@ -73,6 +75,7 @@ export const EditalCriar = () => {
         }
     }
 
+    console.log(a);
     return(        
             <Dialog.Content 
                 className="fixed bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-[480px] shadow-lg shadow-black/25"
@@ -90,8 +93,10 @@ export const EditalCriar = () => {
                                 label="Selecione o curso"
                                 name="curso"
                                 value={curso}
-                                onChange={e => setCurso(e.target.value)}
+                                onChange={e => setCurso(e.target.value)}                                
                             >
+                                <option disabled value="">Selecione o curso</option>
+
                                 {listCurso.map((e) => (
                                     <option                                        
                                         key={e.id_curso}
@@ -109,11 +114,17 @@ export const EditalCriar = () => {
                                 name="disciplina"
                                 value={disciplina}
                                 onChange={e => setDisciplina(e.target.value)}
+
+
                             >
+                                <option disabled value="">Selecione a disciplina</option>
+
                                 {listDisciplina.map((e) => (
                                         <option
                                         key={e.id_disciplina}
                                         value={e.id_disciplina}
+                                        onClick={e => setA(e.id_curso)}
+
                                     >
                                         {e.nome}
                                     </option>

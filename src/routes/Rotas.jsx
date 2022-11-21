@@ -29,7 +29,7 @@ const Rotas = () =>{
                                 </ProtectedLayout>
                             }
                         />
-                        <Route
+                        {/* <Route
                             exact
                             path="/Edital/Monitoria" 
                             element={
@@ -37,9 +37,11 @@ const Rotas = () =>{
                                     <Monitoria />
                                 </ProtectedLayout>
                             }
-                            />
+                        /> */}
                         <Route exact path="/Edital/Aluno" element={ <VisaoAluno />}/>
                         <Route exact path="/Edital" element={ <Edital />}/>
+                        <Route exact path="/Edital/atualizado" element={ <Edital />}/>
+                        <Route exact path="/Edital/Monitoria" element={ <Edital />}/>
                         
                         
                     </Routes>
