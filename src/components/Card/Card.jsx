@@ -1,4 +1,5 @@
 import { memo } from "react"
+import { Link } from "react-router-dom"
 import { ButaoCadastro } from "../Button"
 
 
@@ -31,7 +32,8 @@ export const Card = memo(({vagas,data, disciplina,curso,descricao,children,...pr
                 <h1 className="mt-3 text-xl flex font-bold text-white " >
                     Curso:
                     <p 
-                        className="ml-1 uppercase font-medium"> 
+                        className="ml-1 uppercase font-medium"
+                    > 
                         {curso}
                     </p>
                 </h1>
@@ -61,10 +63,10 @@ export const Card = memo(({vagas,data, disciplina,curso,descricao,children,...pr
     )
 })
 
-export const CardMonitoria = ({curso, disciplina, ...props}) =>{
+export const CardMonitoria = ({to, curso, disciplina, ...props}) =>{
 
     return(
-        <div  className="block rounded-xl border text-start border-gray-800 bg-gray-900 p-4 shadow-xl bg-opacity-[0.7]">
+        <Link to={to}  className="block rounded-xl border text-start border-gray-800 bg-gray-900 p-4 shadow-xl bg-opacity-[0.7] hover:bg-purple-500 hover:bg-opacity-30">
             <span className="text-2xl text-white font-semibold">
                 Curso - {curso}
             </span>
@@ -72,6 +74,6 @@ export const CardMonitoria = ({curso, disciplina, ...props}) =>{
                 Disciplina - {disciplina}
             </p>
             
-        </div>
+        </Link>
     )
 }

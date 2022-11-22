@@ -8,14 +8,36 @@ import { AuthProvider } from "../contexts/Auth";
 import {Log} from "../pages/Log"
 import { Monitoria } from "../pages/edital/monitoria/Monitoria";
 import { VisaoAluno } from "../pages/edital/aluno";
+import Detalhes from "../pages/edital/monitoria/detalhes";
+import Atividades from "../pages/edital/monitoria/detalhes/Inicio";
+import Frequencia from "../pages/edital/monitoria/detalhes/frequencia";
+import Alunos from "../pages/edital/monitoria/detalhes/alunos";
+import ChatGeral from "../pages/edital/monitoria/detalhes/chatGeral/chatGeral";
+import Dashboard from "../pages/edital/monitoria/detalhes/Inicio";
+
+
+
+
+// const Rotas = createBrowserRouter([
+//     {
+//         path:"/",
+//         element:<Home />,
+//         children:[
+//             {
+//                 path:""
+//             }
+//         ]
+//     }
+// ])
+
 
 
 
 
 const Rotas = () =>{
     return (
-        <AuthProvider>
-            <BrowserRouter>
+        
+        <BrowserRouter>
                 <Fragment>
                     <Routes>
                         <Route  exact path="*" element={<Home/>}/>
@@ -28,30 +50,61 @@ const Rotas = () =>{
 
                                 </ProtectedLayout>
                             }
-                        />
+                            />
                         {/* <Route
                             exact
                             path="/Edital/Monitoria" 
                             element={
                                 <ProtectedLayout>
-                                    <Monitoria />
+                                <Monitoria />
                                 </ProtectedLayout>
                             }
                         /> */}
                         <Route exact path="/Edital/Aluno" element={ <VisaoAluno />}/>
                         <Route exact path="/Edital" element={ <Edital />}/>
                         <Route exact path="/Edital/atualizado" element={ <Edital />}/>
-                        <Route exact path="/Edital/Monitoria" element={ <Edital />}/>
-                        
+                        <Route 
+                            exact 
+                            path="/Edital/Monitoria"
+                            element={ <Monitoria/>} 
+                            />
+                        <Route path="/Monitoria/Detalhes" element={<Detalhes />}>
+                            <Route 
+                                path="/Monitoria/Detalhes"
+                                element={<Dashboard/>}
+                            
+                            />
+                            
+                            <Route
+                                exact
+                                path="/Monitoria/Detalhes/ChatGeral"
+                                element={ <ChatGeral/>}
+                            />
+                            <Route
+                                exact
+                                path="/Monitoria/Detalhes/Frequencia"
+                                element={ <Frequencia/>}
+                            />
+                            <Route
+                                exact
+                                path="/Monitoria/Detalhes/Alunos"
+                                element={ <Alunos/>}
+                                loader
+                            />
+                        </Route>                   
+                    </Routes>
+                    <Routes>
                         
                     </Routes>
+
                 </Fragment>
             </BrowserRouter>
-        </AuthProvider>
-    )
-}
-
-
+        
+        )
+    }
+    
+    
+export default Rotas
 
                             // const rota = createBrowserRouter([
                             //         {
@@ -82,4 +135,3 @@ const Rotas = () =>{
                             //             element: <Cadastro />
                             //         }
                             // ])
-export default Rotas

@@ -1,8 +1,11 @@
+import { AuthProvider } from "./contexts/Auth/index.jsx";
 import Rotas from "./routes/Rotas.jsx";
 
 function App() {
     return (
-        <Rotas />
+        <AuthProvider>
+            <Rotas />
+        </AuthProvider>
     );
 }
 export default App;
